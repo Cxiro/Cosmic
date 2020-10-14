@@ -1,0 +1,7 @@
+﻿  dllmain.cpp
+C:\Users\Yoshi\source\repos\Cosmic Client\Cosmic Client\Logger.h(8,24): error C2061: syntax error: identifier 'string'
+C:\Users\Yoshi\source\repos\Cosmic Client\Cosmic Client\dllmain.cpp(13,13): warning C4551: function call missing argument list
+  Logger.cpp
+C:\Users\Yoshi\source\repos\Cosmic Client\Cosmic Client\Logger.cpp(5,35): error C2511: 'const void Logger::log(std::string)': overloaded member function not found in 'Logger'
+C:\Users\Yoshi\source\repos\Cosmic Client\Cosmic Client\Logger.h(6): message : see declaration of 'Logger'
+  Generating Code...
