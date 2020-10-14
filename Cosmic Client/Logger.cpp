@@ -4,14 +4,25 @@
 #include "cosmic.h"
 using namespace std;
 
-void Logger::log(string log) {
-    AllocConsole();
-    FILE* fp;
-    freopen_s(&fp, "CONOUT$", "w", stdout); //output only 
+string loggingPath = string(getenv("APPDATA") + string("\\..\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\RoamingState\\cosmic.txt"));
 
-    system("Color 05");
-    std::cout << "[Cosmic Logger]" << std::endl;
-    std::cout << "Getting Base Module...     " << CosmicBase::getBaseModule;
-    std::cin.get();
-   
+
+void Logger::log(string log) {
+    std::ofstream cosmic;
+    
+    CloseHandle(CreateFileA(loggingPath.c_str(), GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL));
+
+    cosmic.open(loggingPath.c_str(), ios_base::app);
+    cosmic << log << "\n" << std::endl;
+    cosmic.close();
+    return;
+}
+
+void Logger::logStr(string str, ulong num) {
+
+    stringstream strm;
+    strm << str << ": " << hex << num;
+    string result = strm.str();
+    log(result);
+
 }

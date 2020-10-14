@@ -7,14 +7,12 @@
 #include <MinHook.h>
 #pragma comment(lib, "libMinHook.lib")
 
-void runCosmic() {
+void Cosmic(LPVOID lpParam) {
+    Logger::logStr("Base Module", CosmicBase::getBaseModule());
 
 }
 
-DWORD WINAPI logConsole() {
-    Logger::log;
-    return 0;
-}
+
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -24,7 +22,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)logConsole, NULL, 0, NULL);
+        CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)Cosmic, hModule, 0, NULL);
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:

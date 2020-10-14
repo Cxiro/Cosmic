@@ -7,6 +7,5 @@ using namespace std;
 
 struct Logger{
 	static void log(string log);
-	static void logHex(ulong num);
-
+	static void logStr(string str, ulong num);
 };
