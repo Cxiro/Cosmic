@@ -7,23 +7,13 @@
 #include <MinHook.h>
 #pragma comment(lib, "libMinHook.lib")
 
+void runCosmic() {
+
+}
 
 DWORD WINAPI logConsole() {
-    //console
-    AllocConsole();
-    FILE* fp;
-    freopen_s(&fp, "CONOUT$", "w", stdout); //output only 
-
-    system("Color 05");
-    std::cout << "[Cosmic Logger]" << std::endl;
-    std::cout << "Getting Base Module...     " << CosmicBase::getBaseModule;
- 
-
-
-    
-    
+    Logger::log;
     return 0;
-    //console end
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,
